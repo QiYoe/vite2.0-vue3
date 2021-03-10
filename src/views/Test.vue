@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { ref, toRefs, toRef, reactive, computed } from 'vue'
-import Content from '../components/Content.vue'
+import Content from 'comps/Content.vue'
 
 export default {
   name: 'Test',
