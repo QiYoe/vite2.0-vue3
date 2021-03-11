@@ -4,30 +4,25 @@ import {
   createRouter,
 } from 'vue-router'
 
+import Layout from '@/layouts/index.vue'
+
 const routes = [
   {
     path: '/',
-    // name: "Index",
-    component: () => import('views/todo-list.vue'),
+    component: Layout,
+    children: [
+      {
+        path: '/',
+        component: () => import('views/todo-list.vue'),
+      },
+    ],
   }, //此处name不能与下面Home的 name相同否则页面报错
   {
-    path: '/home',
-    name: 'Home',
-    component: () => import('views/Home.vue'),
-  },
-  {
     path: '/test',
-    name: 'Test',
     component: () => import('views/Test.vue'),
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('views/About.vue'),
-  },
-  {
     path: '/helloWorld',
-    name: 'HelloWorld',
     component: () => import('comps/HelloWorld.vue'),
   },
 ]

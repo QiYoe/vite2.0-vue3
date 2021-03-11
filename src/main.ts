@@ -1,9 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import routes from './routes'
-// import '/@/index.css'
-import ElementPlus from 'element-plus'
-import 'element-plus/lib/theme-chalk/index.css'
+import router from './router'
+import element3 from './plugins/element3'
 import store from './store'
+import 'styles/index.scss'
 
-createApp(App).use(routes).use(ElementPlus).use(store).mount('#app')
+createApp(App).use(router).use(store).use(element3).mount('#app')

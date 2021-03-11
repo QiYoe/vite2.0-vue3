@@ -1,6 +1,6 @@
 <template>
   <h1>{{ msg }}</h1>
-
+  <p @click="$store.commit('add')">{{ $store.state.count }}</p>
   <p>
     <a href="https://vitejs.dev/guide/features.html" target="_blank"
       >Vite Documentation</a
@@ -48,15 +48,11 @@ const onclick = () => {
 const state = reactive({ count: 0 })
 
 // 请求mock api
-fetch('/api/getUsers')
-  .then((data) => data.json())
-  .then((res) => {
-    console.log(111, res)
-  })
+// fetch('/api/getUsers')
+//   .then((data) => data.json())
+//   .then((res) => {
+//     console.log(111, res)
+//   })
 </script>
 
-<style scoped>
-a {
-  color: #42b983;
-}
-</style>
+<style scoped></style>

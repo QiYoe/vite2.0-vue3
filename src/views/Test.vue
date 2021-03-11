@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { ref, toRefs, toRef, reactive, computed } from 'vue'
+import { ref, toRefs, toRef, reactive, computed, defineProps } from 'vue'
 import Content from 'comps/Content.vue'
 
 export default {
@@ -32,7 +32,6 @@ export default {
     }
 
     const title = toRef(props, 'title')
-
     console.log(title.value)
     // Attributes (Non-reactive object)
     console.log(attrs, slots, emit)
@@ -44,6 +43,20 @@ export default {
     //     console.log('clean')
     //   })
     // })
+
+    //     const person = reactive({
+    //         msg: '李飞宇',
+    //         age: 18,
+    //         double : computed(() =>{
+    //           return person.age * 3
+    //         })
+    //     })
+    // ​
+    //     function add() {
+    //       person.age += 1
+    //     }
+    //     return { ...toRefs(person), add }
+
     return { msg, age, add, double, showName }
   },
 }

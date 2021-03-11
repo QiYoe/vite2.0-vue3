@@ -11,8 +11,9 @@ export default defineConfig({
     'apis': path.resolve(__dirname, 'src/apis'),
     'views': path.resolve(__dirname, 'src/views'),
     'utils': path.resolve(__dirname, 'src/utils'),
-    'routes': path.resolve(__dirname, 'src/routes'),
+    'router': path.resolve(__dirname, 'src/router'),
     'styles': path.resolve(__dirname, 'src/styles'),
+    'plugins': path.resolve(__dirname, 'src/plugins'),
   },
   plugins: [
     vue(),

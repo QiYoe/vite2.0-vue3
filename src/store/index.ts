@@ -11,6 +11,7 @@ export default createStore({
     describe: '一个贴膜的少年',
     userName: '反对反对',
     taskList: [],
+    count: 0,
   },
   mutations: {
     createTask(state: any, newTask: string) {
@@ -23,6 +24,9 @@ export default createStore({
       const { index, status } = payload
 
       state.taskList[index].isfinished = status
+    },
+    add(state: any, payload: any) {
+      state.count++
     },
   },
 })
