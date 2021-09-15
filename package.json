@@ -17,9 +17,12 @@
     "@vitejs/plugin-vue": "^1.6.1",
     "@vue/compiler-sfc": "^3.2.6",
     "autoprefixer": "^10.3.4",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
     "husky": "^7.0.2",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.14",
     "vite": "^2.5.4"
-  }
+  },
+  "license": "MIT"
 }
