@@ -5,8 +5,12 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
+    "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "prepare": "husky install",
-    "test": ""
+    "cz": "cz",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:pretty": "pretty-quick --staged"
   },
   "dependencies": {
     "vue": "^3.2.6"
@@ -18,10 +22,20 @@
     "@vue/compiler-sfc": "^3.2.6",
     "autoprefixer": "^10.3.4",
     "commitizen": "^4.2.4",
+    "conventional-changelog-cli": "^2.1.1",
+    "cz-conventional-changelog-zh": "^0.0.2",
     "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "2.4.0",
+    "pretty-quick": "^3.1.1",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.14",
     "vite": "^2.5.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog-zh"
+    }
+  }
 }
