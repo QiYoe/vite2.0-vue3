@@ -6,9 +6,12 @@
     "serve": "npm run dev",
     "dev": "vite",
     "build": "vite build",
+    "preview:dist": "vite preview",
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "prepare": "husky install",
     "cz": "cz",
+    "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
+    "clean:lib": "rimraf node_modules",
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
@@ -45,6 +48,7 @@
     "stylelint-order": "^4.1.0",
     "tailwindcss": "^2.2.14",
     "vite": "^2.5.4",
+    "vite-plugin-windicss": "^1.4.3",
     "vue-eslint-parser": "^7.11.0"
   },
   "license": "MIT",
@@ -52,5 +56,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog-zh"
     }
+  },
+  "engines": {
+    "node": "^12 || >=14"
   }
 }
