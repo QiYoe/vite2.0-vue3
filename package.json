@@ -5,7 +5,11 @@
     "bootstrap": "yarn install",
     "serve": "npm run dev",
     "dev": "vite",
-    "build": "vite build",
+    "build": "cross-env NODE_ENV=production vite build",
+    "build:no-cache": "yarn clean:cache && npm run build",
+    "report": "cross-env REPORT=true npm run build",
+    "type:check": "vue-tsc --noEmit --skipLibCheck",
+    "preview": "npm run build && vite preview",
     "preview:dist": "vite preview",
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "prepare": "husky install",
@@ -15,9 +19,11 @@
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
-    "lint:pretty": "pretty-quick --staged"
+    "lint:pretty": "pretty-quick --staged",
+    "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap"
   },
   "dependencies": {
+    "ant-design-vue": "^2.2.8",
     "vue": "^3.2.6"
   },
   "devDependencies": {
@@ -30,7 +36,9 @@
     "autoprefixer": "^10.3.4",
     "commitizen": "^4.2.4",
     "conventional-changelog-cli": "^2.1.1",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog-zh": "^0.0.2",
+    "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-define-config": "^1.0.9",
@@ -38,6 +46,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^7.17.0",
     "husky": "^7.0.2",
+    "less": "^4.1.1",
     "lint-staged": "^11.1.2",
     "postcss": "^8.3.6",
     "prettier": "2.4.0",
@@ -47,15 +56,23 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0",
     "tailwindcss": "^2.2.14",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3",
     "vite": "^2.5.4",
     "vite-plugin-windicss": "^1.4.3",
-    "vue-eslint-parser": "^7.11.0"
+    "vue-eslint-parser": "^7.11.0",
+    "vue-tsc": "^0.3.0"
   },
   "license": "MIT",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog-zh"
     }
+  },
+  "resolutions": {
+    "//": "Used to install imagemin dependencies, because imagemin may not be installed in China. If it is abroad, you can delete it",
+    "bin-wrapper": "npm:bin-wrapper-china",
+    "rollup": "^2.56.3"
   },
   "engines": {
     "node": "^12 || >=14"
